@@ -33,9 +33,9 @@ def extract_flow_in_t(df, name_of_starting_region, name_of_ending_region,
 		ending_region_column = 'end_prov_name'
 
 	try:
-		flow = float(np.sum(df[(df[starting_region_column] == name_of_starting_region) &
-							   (df[ending_region_column] == name_of_ending_region) &
-							   (df['date'] == time_t)]['flow']))
+		flow = int(np.sum(df[(df[starting_region_column] == name_of_starting_region) &
+							 (df[ending_region_column] == name_of_ending_region) &
+							 (df['date'] == time_t)]['flow']))
 	except:
 		# this happens if there are no entries in the df with data on flow between the two regions
 		# (i.e. the flow between them is 0)
